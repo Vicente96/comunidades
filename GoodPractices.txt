@@ -1,0 +1,89 @@
+# Naming conventions
+## For code:
+* self descriptive variable names
+```
+// incorrect
+let em = 'asd@test.com'
+
+// correct
+let email = 'asd@test.com'
+```
+* camelCase for variables, functions, methods
+```
+// incorrect
+let User = 'asd@test.com'
+function OnChange() {...}
+const on_change() {...}
+
+// correct
+let user = 'asd@test.com'
+function onChange() {...}
+const onChange() {...}
+```
+* PascalCase for classes and components
+```
+// incorrect
+function login () {...}
+const APP = () => {...}
+class newComponent extends React.Component {...}
+
+// correct
+function Login () {...}
+const App = () => {...}
+class NewComponent extends React.Component {...}
+```
+* UPPER_CASE for constants
+```
+const CONST_VARIABLE_NAME = 0
+```
+* variables out of the component scope are declared on the top of the file, camelCase if mutable, UPPER_CASE if immutable
+```
+/*{imports}*/
+const CONST_VARIABLE_NAME = 0
+let mutableVariable = 'this value can change'
+
+const Login = () => {...}
+```
+
+## For files:
+* PascalCase for component folders (jsx parent folders), test files (ComponentName.test.js), css modules (ComponentName.module.css)
+* camelCase for js-only files
+### Example:
+```
+src
+|- assets
+  |- images
+  |- audio
+|- components
+  |- common
+    |- Header
+      |- Header.jsx
+      |- Header.test.js
+      |- Header.module.css
+  |- Dashboard
+    |- AnotherComponent
+      |- /* AnotherComponent files*/
+    |- Dashboard.jsx
+    |- Dashboard.test.js
+    |- Dashboard.module.css
+|- redux
+  |- actions
+    |- actionTypes.js
+  |- reducers
+    |- reducer.js
+|- utils
+```
+
+# Other
+* No console.log()
+* No commented code unless it is marked as pending
+```
+// TODO: WIP EM-00
+/* your comented code here */
+``` 
+* Only TODO comments are valid
+```
+function handleValidation() {
+  // TODO: Missing definition or out of scope 
+}
+```
